@@ -1,12 +1,12 @@
-// lib/validations/task.ts
-import { z } from "zod";
-import { TaskStatus } from "@prisma/client";
 
+import { z } from "zod";
+
+const TaskStatusEnum = ["IN_PROGRESS", "COMPLETED", "INCOMPLETE"] as const;
 
 export const TaskFormSchema = z.object({
   title: z.string().min(1).max(255),
   description: z.string().max(1000).optional(),
-  status: z.enum(TaskStatus), 
+  status: z.enum(TaskStatusEnum),
   dueDate: z.string().optional(),
   categoryId: z.string().optional(),
 });
@@ -21,25 +21,22 @@ export const passwordSchema = z
     message: "Password must contain at least one special character",
   });
 
+export const createTaskSchema = z.object({
+  title: z.string().min(1, "Title is required").max(255, "Title is too long"),
+  description: z.string().max(1000, "Description is too long").optional(),
+  status: z.enum(TaskStatusEnum).default("IN_PROGRESS"), 
+  dueDate: z.iso.datetime().optional(), 
+  categoryId: z.string().optional(),
+});
 
-  export const createTaskSchema = z.object({
-    title: z.string().min(1, "Title is required").max(255, "Title is too long"),
-    description: z.string().max(1000, "Description is too long").optional(),
-    status: z.enum(TaskStatus).default(TaskStatus.IN_PROGRESS),
-    dueDate: z.iso.datetime().optional(),
-    categoryId: z.string().optional(),
-  });
-  
+export const taskQuerySchema = z.object({
+  categoryId: z.string().optional(),
+  status: z.enum(TaskStatusEnum).optional(),
+});
 
-  export const taskQuerySchema = z.object({
-    categoryId: z.string().optional(),
-    status: z.nativeEnum(TaskStatus).optional(),
-  });
-  
-  export type CreateTaskInput = z.infer<typeof createTaskSchema>;
-  
+export type CreateTaskInput = z.infer<typeof createTaskSchema>;
 export type TaskQueryInput = z.infer<typeof taskQuerySchema>;
-  
+
 export const createCategorySchema = z.object({
   name: z.string().min(1, "Name is required").max(100, "Name is too long"),
   color: z.string().regex(/^#[0-9A-Fa-f]{6}$/, "Invalid color format"),
@@ -56,11 +53,10 @@ export type UpdateCategoryInput = z.infer<typeof updateCategorySchema>;
 export const updateTaskSchema = z.object({
   title: z.string().min(1).max(255).optional(),
   description: z.string().max(1000).optional(),
-  status: z.enum(TaskStatus).optional(),
+  status: z.enum(TaskStatusEnum).optional(), 
   dueDate: z.string().optional(),
   categoryId: z.string().optional(),
 });
-
 
 export const sendMessageSchema = z.object({
   chatId: z.string().optional(),
