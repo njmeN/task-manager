@@ -34,7 +34,7 @@ export default function SidebarClient({ children }: SidebarClientProps) {
   if (!mounted) {
     return (
       <button className={buttonStyles} type="button">
-        <Menu className="size-6" />
+        <Menu className="size-6 cursor-pointer" />
       </button>
     );
   }
@@ -43,7 +43,7 @@ export default function SidebarClient({ children }: SidebarClientProps) {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <button className={buttonStyles} type="button" aria-label="Open Menu">
-          <Menu className="size-6" />
+          <Menu className="size-6 cursor-pointer" />
         </button>
       </SheetTrigger>
       

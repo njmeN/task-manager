@@ -50,9 +50,9 @@ export function CategoryList() {
   return (
     <nav className="flex flex-col gap-1">
       {categories.map((category: CategoryWithCount) => (
-        <div className="flex justify-between items-center gap-2 p-3 rounded hover:bg-accent group ">
+        <div className="flex justify-between items-center gap-2 p-3 rounded hover:bg-accent group " key={category.id}>
             <Link
-          key={category.id}
+         
             href={`/categories/${category.id}`}
             className="flex items-center gap-2 p-3 rounded hover:bg-accent group "
         >

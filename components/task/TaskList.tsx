@@ -29,6 +29,7 @@ import { AddCategoryButton } from "@/components/add-category-button";
 import { isWithinInterval, type DateFilter } from "@/lib/utils/date-filters";
 import type { TaskWithCategory } from "@/lib/type/api";
 import { ConfirmDeleteDialog } from "../confirm-delete-dialog";
+import { AIChatButton } from "@/app/(main)/ai-chat-button";
 
 export function TaskList({ categoryId }: { categoryId?: string }) {
   const [statusFilter, setStatusFilter] = useState<TaskStatus | "ALL">("ALL");
@@ -235,10 +236,11 @@ export function TaskList({ categoryId }: { categoryId?: string }) {
         </div>
 
         <div className="flex items-center gap-2 w-full xl:w-auto">
+          <AIChatButton/>
           {!categoryId && <AddCategoryButton />}
           <Dialog open={taskDialogOpen} onOpenChange={setTaskDialogOpen}>
             <DialogTrigger asChild>
-              <Button className="w-full xl:w-auto">
+              <Button className="w-full xl:w-auto cursor-pointer">
                 <Plus className="h-4 w-4 mr-1" /> Add Task
               </Button>
             </DialogTrigger>
@@ -261,9 +263,6 @@ export function TaskList({ categoryId }: { categoryId?: string }) {
             <Search className="h-6 w-6 text-muted-foreground" />
           </div>
           <h3 className="text-lg font-medium">No tasks found</h3>
-          <p className="text-muted-foreground text-sm">
-            Try adjusting your filters or search query.
-          </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">

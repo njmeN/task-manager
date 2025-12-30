@@ -60,3 +60,11 @@ export const updateTaskSchema = z.object({
   dueDate: z.string().optional(),
   categoryId: z.string().optional(),
 });
+
+
+export const sendMessageSchema = z.object({
+  chatId: z.string().optional(),
+  message: z.string().min(1, "Message is required").max(1000, "Message is too long"),
+});
+
+export type SendMessageInput = z.infer<typeof sendMessageSchema>;
