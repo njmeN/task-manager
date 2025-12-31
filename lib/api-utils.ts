@@ -1,7 +1,22 @@
-// lib/api-utils.ts
 import { NextResponse } from "next/server";
 import { ZodError } from "zod";
-import { Prisma } from "@prisma/client";
+
+// Define Prisma error interface manually
+interface PrismaError extends Error {
+  code: string;
+  meta?: Record<string, unknown>;
+  clientVersion?: string;
+}
+
+function isPrismaError(error: unknown): error is PrismaError {
+  return (
+    typeof error === "object" &&
+    error !== null &&
+    "code" in error &&
+    typeof (error as PrismaError).code === "string" &&
+    (error as PrismaError).code.startsWith("P")
+  );
+}
 
 export function handleApiError(error: unknown) {
   console.error("API Error:", error);
@@ -21,7 +36,7 @@ export function handleApiError(error: unknown) {
   }
 
   // Prisma errors
-  if (error instanceof Prisma.PrismaClientKnownRequestError) {
+  if (isPrismaError(error)) {
     // Unique constraint violation
     if (error.code === "P2002") {
       return NextResponse.json(
