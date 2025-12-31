@@ -1,3 +1,8 @@
-import { Category } from "@prisma/client";
-
-export type CategoryOption = Pick<Category, "id" | "name" | "color">;
+export interface Category {
+    id: string;
+    name: string;
+    color: string | null;
+    userId: string | null;
+    isSystem: boolean;
+    createdAt: Date | string;
+  }
