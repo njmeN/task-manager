@@ -1,5 +1,5 @@
 // types/api.ts
-import { Task, Category, TaskStatus } from "@prisma/client";
+import { Task, Category } from "@prisma/client";
 
 export type TaskWithCategory = Task & {
   category: Pick<Category, "id" | "name" | "color"> | null;

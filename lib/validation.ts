@@ -1,12 +1,13 @@
 
 import { z } from "zod";
+import { TaskStatus } from "./type/task-status";
 
-const TaskStatusEnum = ["IN_PROGRESS", "COMPLETED", "INCOMPLETE"] as const;
+
 
 export const TaskFormSchema = z.object({
   title: z.string().min(1).max(255),
   description: z.string().max(1000).optional(),
-  status: z.enum(TaskStatusEnum),
+  status: z.enum(TaskStatus),
   dueDate: z.string().optional(),
   categoryId: z.string().optional(),
 });
@@ -24,14 +25,14 @@ export const passwordSchema = z
 export const createTaskSchema = z.object({
   title: z.string().min(1, "Title is required").max(255, "Title is too long"),
   description: z.string().max(1000, "Description is too long").optional(),
-  status: z.enum(TaskStatusEnum).default("IN_PROGRESS"), 
+  status: z.enum(TaskStatus).default("IN_PROGRESS"), 
   dueDate: z.iso.datetime().optional(), 
   categoryId: z.string().optional(),
 });
 
 export const taskQuerySchema = z.object({
   categoryId: z.string().optional(),
-  status: z.enum(TaskStatusEnum).optional(),
+  status: z.enum(TaskStatus).optional(),
 });
 
 export type CreateTaskInput = z.infer<typeof createTaskSchema>;
@@ -53,7 +54,7 @@ export type UpdateCategoryInput = z.infer<typeof updateCategorySchema>;
 export const updateTaskSchema = z.object({
   title: z.string().min(1).max(255).optional(),
   description: z.string().max(1000).optional(),
-  status: z.enum(TaskStatusEnum).optional(), 
+  status: z.enum(TaskStatus).optional(), 
   dueDate: z.string().optional(),
   categoryId: z.string().optional(),
 });

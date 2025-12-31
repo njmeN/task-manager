@@ -1,5 +1,6 @@
 import prisma from "./prisma";
-import { TaskStatus } from "@prisma/client";
+import { TaskStatus } from "./type/task-status";
+
 
 export async function updateOverdueTasks(userId: string) {
   const now = new Date();

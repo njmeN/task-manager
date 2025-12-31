@@ -3,7 +3,8 @@ import prisma from "@/lib/prisma";
 import { getServerSession } from "@/lib/get-session";
 import { handleApiError, unauthorizedResponse } from "@/lib/api-utils";
 import { createTaskSchema, taskQuerySchema } from "@/lib/validation";
-import { TaskStatus } from "@prisma/client";
+import { TaskStatus } from "@/lib/type/task-status";
+
 
 
 export async function GET(request: NextRequest) {
