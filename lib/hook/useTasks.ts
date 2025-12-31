@@ -1,7 +1,8 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { TaskStatus } from "@prisma/client";
+
 import type { TaskWithCategory } from "@/lib/type/api";
 import type { TaskFormInput } from "@/lib/validation";
+import { TaskStatus } from "../type/task-status";
 
 interface TaskFilters {
   categoryId?: string;

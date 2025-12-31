@@ -2,7 +2,6 @@
 
 import { useState, useMemo } from "react";
 import { Plus, Loader2, Filter, CalendarDays, Search, X } from "lucide-react";
-import { TaskStatus } from "@prisma/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -30,6 +29,8 @@ import { isWithinInterval, type DateFilter } from "@/lib/utils/date-filters";
 import type { TaskWithCategory } from "@/lib/type/api";
 import { ConfirmDeleteDialog } from "../confirm-delete-dialog";
 import { AIChatButton } from "@/app/(main)/ai-chat-button";
+import { TaskStatus } from "@/lib/type/task-status";
+
 
 export function TaskList({ categoryId }: { categoryId?: string }) {
   const [statusFilter, setStatusFilter] = useState<TaskStatus | "ALL">("ALL");

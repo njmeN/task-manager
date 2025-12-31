@@ -11,7 +11,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { CheckCircle, Edit, Trash2, Loader2, AlertCircle, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { TaskStatus } from "@prisma/client";
+import { TaskStatus } from "@/lib/type/task-status";
+
+
 
 interface TaskCardProps {
   task: TaskWithCategory;

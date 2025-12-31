@@ -22,11 +22,12 @@ import {
 } from "@/components/ui/select";
 import { Loader2 } from "lucide-react";
 import { TaskFormSchema, type TaskFormInput } from "@/lib/validation";
-import { TaskStatus } from "@prisma/client";
+
 import { useCategories } from "@/lib/hook/useCategories";
 import { useCreateTask, useUpdateTask } from "@/lib/hook/useTasks";
 import { toast } from "sonner";
 import type { TaskWithCategory } from "@/lib/type/api";
+import { TaskStatus } from "@/lib/type/task-status";
 
 interface TaskFormProps {
   task?: TaskWithCategory;
