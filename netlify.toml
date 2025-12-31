@@ -1,0 +1,6 @@
+[build]
+  command = "prisma generate && npm run build"
+  publish = ".next"
+
+[build.environment]
+  PRISMA_SKIP_POSTINSTALL_GENERATE = "true"
