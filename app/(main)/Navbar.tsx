@@ -5,7 +5,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 export default function Navbar() {
   return (
     <header className="">
-      <div className="flex max-w-7xl flex-wrap items-center gap-5 px-5 py-3 text-2xl font-bold">
+      <div className="flex flex-wrap max-w-7xl flex-wrap items-center gap-5 px-5 py-3 text-2xl font-bold">
         <SidebarUI />
         <Link href="/" className="text-primary">
           Home

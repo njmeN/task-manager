@@ -26,7 +26,7 @@ export default async function ProfilePage() {
             Update your account details, email, and password.
           </p>
         </div>
-        <div className="flex flex-col gap-6 lg:flex-row">
+        <div className="flex flex-wrap flex-col gap-6 lg:flex-row">
           <div className="flex-1">
             <ProfileDetailsForm user={user} />
           </div>

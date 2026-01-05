@@ -42,7 +42,7 @@ export function TaskCard({
         !isCompleted && !isIncomplete && "border-l-blue-500"
       )}
     >
-      <CardHeader className="flex flex-row justify-between items-start pb-2">
+      <CardHeader className="flex flex-wrap flex-row justify-between items-start pb-2">
         <div className="space-y-1 flex-1">
           <CardTitle
             className={cn(
@@ -55,7 +55,7 @@ export function TaskCard({
           </CardTitle>
           
           {isIncomplete && (
-            <div className="flex items-center text-[10px] font-bold uppercase text-red-600 tracking-wider">
+            <div className="flex flex-wrap items-center text-[10px] font-bold uppercase text-red-600 tracking-wider">
               <AlertCircle className="h-3.5 w-3.5 mr-1" /> Overdue
             </div>
           )}
@@ -96,7 +96,7 @@ export function TaskCard({
         )}
         
         <div className={cn(
-          "flex items-center text-xs px-2 py-1 rounded-md w-fit",
+          "flex flex-wrap items-center text-xs px-2 py-1 rounded-md w-fit",
           isIncomplete ? "bg-red-100 text-red-700 font-semibold" : "bg-muted/50 text-muted-foreground"
         )}>
           <Calendar className="h-3 w-3 mr-1.5" />
@@ -112,8 +112,8 @@ export function TaskCard({
         </div>
       </CardContent>
 
-      <CardFooter className="flex justify-between items-center pt-2 border-t bg-muted/5">
-        <div className="flex gap-1">
+      <CardFooter className="flex flex-wrap justify-between items-center pt-2 border-t bg-muted/5">
+        <div className="flex flex-wrap gap-1">
           <Button
             size="sm"
             variant="ghost"

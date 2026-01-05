@@ -11,7 +11,7 @@ export default async function MainLayout({
   
   if (!user) unauthorized();
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex flex-wrap min-h-screen flex-col">
       <Navbar />
       {children}
     </div>

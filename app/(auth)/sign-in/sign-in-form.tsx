@@ -140,7 +140,7 @@ export function SignInForm() {
               control={form.control}
               name="rememberMe"
               render={({ field }) => (
-                <FormItem className="flex items-center gap-2">
+                <FormItem className="flex flex-wrap items-center gap-2">
                   <FormControl>
                     <Checkbox
                       checked={field.value}
@@ -162,7 +162,7 @@ export function SignInForm() {
               Login
             </LoadingButton>
 
-            <div className="flex w-full flex-col items-center justify-between gap-2">
+            <div className="flex flex-wrap w-full flex-col items-center justify-between gap-2">
               <Button
                 type="button"
                 variant="outline"
@@ -180,7 +180,7 @@ export function SignInForm() {
         </Form>
       </CardContent>
       <CardFooter>
-        <div className="flex w-full justify-center border-t pt-4">
+        <div className="flex flex-wrap w-full justify-center border-t pt-4">
           <p className="text-muted-foreground text-center text-xs">
             Don&apos;t have an account?{" "}
             <Link href="/sign-up" className="underline">

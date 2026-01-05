@@ -12,7 +12,7 @@ export function ActiveLink({ href, children }: { href: string, children: React.R
     <Link
       href={href}
       className={cn(
-        "flex items-center gap-2 p-3 rounded-lg transition-all duration-200",
+        "flex flex-wrap items-center gap-2 p-3 rounded-lg transition-all duration-200",
         isActive 
           ? "bg-primary/10 text-primary shadow-sm" 
           : "hover:bg-accent text-muted-foreground hover:text-foreground"

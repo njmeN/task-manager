@@ -1,6 +1,6 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
-interface Message {
+export interface Message {
   id: string;
   role: string;
   content: string;

@@ -16,7 +16,7 @@ export function CategoryList() {
   if (isLoading) {
    
     return (
-      <div className="flex justify-center p-4">
+      <div className="flex flex-wrap justify-center p-4">
         <Loader2 className="h-6 w-6 animate-spin text-primary" />
       </div>
     );
@@ -48,19 +48,19 @@ export function CategoryList() {
   };
 
   return (
-    <nav className="flex flex-col gap-1">
+    <nav className="flex  flex-wrap flex-col gap-1">
       {categories.map((category: CategoryWithCount) => (
-        <div className="flex justify-between items-center gap-2 p-3 rounded hover:bg-accent group " key={category.id}>
+        <div className="flex flex-wrap justify-between items-center gap-2 p-3 rounded hover:bg-accent group " key={category.id}>
             <Link
          
             href={`/categories/${category.id}`}
-            className="flex items-center gap-2 p-3 rounded hover:bg-accent group "
+            className="flex flex-wrap items-center gap-2 p-3 rounded hover:bg-accent group "
         >
           <div
             className="w-4 h-4 rounded shrink-0"
             style={{ backgroundColor: category.color || "#e5e7eb" }}
           />
-          <span className="flex-1 truncate text-sm">
+          <span className="flex-1 flex-wrap truncate text-sm">
             {category.name}
           </span>
           <span className="text-xs text-muted-foreground">

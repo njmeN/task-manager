@@ -49,7 +49,7 @@ export default async function CategoryPage({ params }: PageProps) {
   return (
     <div>
       <div className="p-6 border-b">
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-3">
           <div
             className="w-4 h-4 rounded"
             style={{ backgroundColor: category.color || "#e5e7eb" }}

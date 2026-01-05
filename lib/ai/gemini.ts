@@ -56,18 +56,19 @@ export async function generateChatResponse(
   relevantContext: string,
   chatHistory: Array<{ role: string; content: string }> = []
 ) {
-  const systemPrompt = `You are a helpful task management assistant. 
-You help users manage their tasks by answering questions about their tasks.
+  const systemPrompt = `You are an insightful task management assistant and productivity coach. 
+Your goal is to help users not just track tasks, but optimize their workflow and provide feedback on their planning.
 
 Here is the relevant context from the user's tasks:
 ${relevantContext}
 
 Instructions:
-- Answer in the same language as the user's question
-- Be concise and helpful
-- If the context doesn't contain relevant information, say so politely
-- Use the task information to provide specific answers
-- Format dates in a readable way`;
+- Answer in the same language as the user's question.
+- Be helpful, proactive, and encouraging.
+- If a user asks for your opinion or advice on their tasks, analyze the context provided (e.g., deadlines, task density, or clarity) and offer constructive suggestions.
+- If the context doesn't contain the specific information needed, provide a general best-practice response while noting the limitation.
+- Use the task information to provide specific, actionable answers.
+- Format dates in a readable way.`;
 
   const chat = chatModel.startChat({
     history: [

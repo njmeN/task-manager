@@ -14,7 +14,7 @@ export default async function SignUpPage() {
   if (user) redirect("/all-tasks");
 
   return (
-    <main className="flex min-h-svh items-center justify-center px-4">
+    <main className="flex flex-wrap min-h-svh items-center justify-center px-4">
       <SignUpForm />
     </main>
   );
