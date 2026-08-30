@@ -157,17 +157,10 @@ The application will be available at `http://localhost:3000`.
 ## Screenshots
 
 
+<img src="./public/screenshots/categories-sc.jpg" alt="Categories" width="700">
 
-![categories](./public/screenshots/categories-sc.jpg)
+<img src="./public/screenshots/primary-page-sc.jpg" alt="Primary page" width="700">
 
+<img src="./public/screenshots/ai-assistant-sc.jpg" alt="AI Assistant" width="700">
 
-
-![primary-page](./public/screenshots/primary-page-sc.jpg)
-
-
-
-![AI Assistant](./public/screenshots/ai-assistant-sc.jpg)
-
-
-
-![Task page](./public/screenshots/tasks-page-sc.jpg)
+<img src="./public/screenshots/tasks-page-sc.jpg" alt="Task page" width="700">
